@@ -44,6 +44,21 @@ for linha in linhas:
 print(moedas)
 
 
+import pandas as pd
+
+# Remover a chave "nome" de cada dicionário interno (pois já está como chave principal)
+for moeda in moedas:
+    moedas[moeda].pop("nome", None)  # Remove "nome" se existir
+
+# Criar DataFrame sem duplicação
+df_moedas = pd.DataFrame.from_dict(moedas, orient="index").reset_index()
+
+# Renomear a coluna "index" para "nome" (já que a chave do dicionário é o nome da moeda)
+df_moedas.rename(columns={"index": "nome"}, inplace=True)
+
+display(df_moedas)
+
+
 # In[ ]:
 
 
