@@ -45,7 +45,7 @@ print(moedas)
 
 
 import pandas as pd
-
+# para melhor visualização dos resultados, vamos transformar nosso dicionário em um Df Pandas.
 # Remover a chave "nome" de cada dicionário interno (pois já está como chave principal)
 for moeda in moedas:
     moedas[moeda].pop("nome", None)  # Remove "nome" se existir
